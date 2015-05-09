@@ -17,7 +17,7 @@ dependencies {
       "org.slf4j:slf4j-api:${slf4j_api_version}",
       "ch.qos.logback:logback-classic:${logback_version}")
 
-  testCompile("com.google.guava:guava-testlib:$guava_version",
+  testCompile("com.google.guava:guava-testlib:${guava_version}",
       "junit:junit:${junit_version}",
       "com.google.truth:truth:${truth_version}",
       "org.testng:testng:${testng_version}")
@@ -37,7 +37,7 @@ task wrapper(type: Wrapper) {
 }
 
 test {
-
-  return useTestNG()
+  useTestNG()
+  maxHeapSize = "128m"
 }
 
